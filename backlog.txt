@@ -27,11 +27,6 @@ Functional Requirements
 however this is not working.
 - Some users have complained that they even couldn’t find the sign out button.
 
-
-
-
-
-
 FEAT-01
 Make the sessions page private, so it's not accessible
 unauthorised. (You don't need to implement the login)
