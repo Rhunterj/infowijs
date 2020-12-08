@@ -10,7 +10,7 @@ import {
 import infowijsLogo from '../../images/infowijs-white.svg'
 import Navigation from '../Navigation'
 
-function Layout({ children }) {
+function Layout({ children, signOut }) {
   return (
     <div>
       <Container fluid className="page">
@@ -21,7 +21,7 @@ function Layout({ children }) {
             </NavbarBrand>
             <Navigation />
             <div className="page-navigation-profile my-4">
-              <Button color="link" className="text-dark">Log out</Button>
+              <Button outline color="light" onClick={() => signOut()} className="full">Log out</Button>
             </div>
           </Col>
           <Col className="page-wrapper">
