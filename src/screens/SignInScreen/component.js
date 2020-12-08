@@ -1,31 +1,17 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react'
-import PropTypes from 'prop-types'
-import {
-  Alert,
-  Button,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  Spinner,
-} from 'reactstrap'
-import infowijsLogo from '../../images/infowijs-primary.svg'
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Alert, Button, Col, Container, Form, FormGroup, Input, Label, Row, Spinner } from "reactstrap";
+import infowijsLogo from "../../images/infowijs-primary.svg";
 
-function SignInScreen({
-  signIn, isAuthenticationFailed,
-}) {
-  const [password, setPassword] = useState('')
-  const [submitting, setSubmitting] = useState(false)
+function SignInScreen({ signIn, isAuthenticationFailed }) {
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    setSubmitting(false)
-  }, [])
+    if (isAuthenticationFailed) {
+      setSubmitting(false);
+    }
+  }, [isAuthenticationFailed]);
 
   return (
     <Container fluid>
@@ -35,12 +21,12 @@ function SignInScreen({
             <img src={infowijsLogo} alt="Infowijs" className="w-25 mb-3" />
             <Form
               onSubmit={(ev) => {
-                ev.preventDefault()
-                signIn(password)
-                setSubmitting(true)
+                ev.preventDefault();
+                signIn(password);
+                setSubmitting(true);
               }}
             >
-              {isAuthenticationFailed && <Alert color="danger">Sign in failed</Alert>}
+              {isAuthenticationFailed && <Alert color="warning">The password you’ve filled in is incorrect</Alert>}
               <FormGroup>
                 <Label for="password">Fill in your Password to access</Label>
                 <Input
@@ -53,7 +39,7 @@ function SignInScreen({
                 />
               </FormGroup>
               <Button disabled={!!submitting}>
-                {!!submitting && (<Spinner size="sm" className="mr-2" color="dark" />)}
+                {!!submitting && <Spinner size="sm" className="mr-2" color="dark" />}
                 Sign in
               </Button>
             </Form>
@@ -61,12 +47,12 @@ function SignInScreen({
         </Col>
       </Row>
     </Container>
-  )
+  );
 }
 
 SignInScreen.propTypes = {
   signIn: PropTypes.func.isRequired,
   isAuthenticationFailed: PropTypes.bool,
-}
+};
 
-export default SignInScreen
+export default SignInScreen;
