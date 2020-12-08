@@ -1,3 +1,37 @@
+BUG-02
+Make the Frontend Client run on port 9331 for local
+development.
+Context
+- To avoid clashing with other local clients which already run on port 8181 we need the Frontend Client to
+run locally on 9331.
+
+FEAT-04
+Hide publicly visible password from the sign in screen
+Functional Requirements
+- The password field should be concealed so when our users fill in their password it can’t be seen by
+their physical neighbours when the look over their shoulder
+
+BUG-05
+When authentication failed on the sign in screen an error
+should be shown
+Functional Requirements
+- On the sign in screen when you fill in an incorrect password an error message should be shown. (This
+worked in the past but stopped working somewhere last month.)
+- The error message should be in a warning color and showing “The password you’ve filled in is
+incorrect”
+
+BUG-08
+Sign out is broken!
+Functional Requirements
+- When I press on the Log out button I’m expecting to sign out and be redirected to the sign in screen,
+however this is not working.
+- Some users have complained that they even couldn’t find the sign out button.
+
+
+
+
+
+
 FEAT-01
 Make the sessions page private, so it's not accessible
 unauthorised. (You don't need to implement the login)
@@ -8,12 +42,6 @@ Technical Requirements
 - The component `PrivateRoute` is already provided in the project, although we aren't sure if it works out
 of the box!
 
-BUG-02
-Make the Frontend Client run on port 9331 for local
-development.
-Context
-- To avoid clashing with other local clients which already run on port 8181 we need the Frontend Client to
-run locally on 9331.
 
 FEAT-03
 FAQ for Account Managers
@@ -37,20 +65,12 @@ be marked with their target audience (parents, teachers, school admins, students
 Technical Requirements
 - There will be an API available later on, so the FAQ may be hardcoded for now
 
-FEAT-04
-Hide publicly visible password from the sign in screen
+FEAT-07
+Search for sessions
 Functional Requirements
-- The password field should be concealed so when our users fill in their password it can’t be seen by
-their physical neighbours when the look over their shoulder
-
-BUG-05
-When authentication failed on the sign in screen an error
-should be shown
-Functional Requirements
-- On the sign in screen when you fill in an incorrect password an error message should be shown. (This
-worked in the past but stopped working somewhere last month.)
-- The error message should be in a warning color and showing “The password you’ve filled in is
-incorrect”
+- The sessions overview should be searchable. There is already a search bar in the UI, but that is not
+implemented yet.
+- I want to be able to search for customer name, user name or user id
 
 BUG-06
 On the first page of sessions, the pagination doesn’t
@@ -60,25 +80,6 @@ Functional Requirements
 marked as active.
 - When you use the pagination navigating to other pages, it should also be active on the correct page
 
-FEAT-07
-Search for sessions
-Functional Requirements
-- The sessions overview should be searchable. There is already a search bar in the UI, but that is not
-implemented yet.
-- I want to be able to search for customer name, user name or user id
-
-BUG-08
-Sign out is broken!
-Functional Requirements
-- When I press on the Log out button I’m expecting to sign out and be redirected to the sign in screen,
-however this is not working.
-- Some users have complained that they even couldn’t find the sign out button.
-
-FEAT-09
-Show the latest sign in on the dashboard
-Functional Requirements
-- On the Dashboard page in the admin panel we would like to see which user has been signed in last.
-- Show the user’s name and the school they’ve signed into including with how long ago it happened.
 
 FEAT-10
 Custom sorting sessions
@@ -88,6 +89,12 @@ Functional Requirements
 Technical Requirements
 - Currently the sessions are sorted randomly based on how the API returns the data, this can’t be
 changed.
+
+FEAT-09
+Show the latest sign in on the dashboard
+Functional Requirements
+- On the Dashboard page in the admin panel we would like to see which user has been signed in last.
+- Show the user’s name and the school they’ve signed into including with how long ago it happened.
 
 BUG-11
 Show more sessions in the overview
