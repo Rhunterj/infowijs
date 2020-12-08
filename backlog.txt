@@ -1,0 +1,96 @@
+FEAT-01
+Make the sessions page private, so it's not accessible
+unauthorised. (You don't need to implement the login)
+Functional Requirements
+- Please make the /sessions page private so it's not accessible unless the password `private-key` is used
+on the sign in screen
+Technical Requirements
+- The component `PrivateRoute` is already provided in the project, although we aren't sure if it works out
+of the box!
+
+BUG-02
+Make the Frontend Client run on port 9331 for local
+development.
+Context
+- To avoid clashing with other local clients which already run on port 8181 we need the Frontend Client to
+run locally on 9331.
+
+FEAT-03
+FAQ for Account Managers
+Context
+We are growing our team of account managers and business developers which are first in line with
+customer support. We get more and more questions and want to support our team with a knowledge
+base of questions and answers they can give about our products.
+The knowledge base should be easy in use and work both when account managers are on the road and
+at schools and when they are with customers on the phone.
+Content
+The base for questions and answers can be found on https://hoy.app/faq/parent, https://hoy.app/faq/
+teacher, https://hoy.app/faq/school, https://hoy.app/faq/student.
+You can find the Schoolwiki questions and answers on https://www.notion.so/schoolwiki/SchoolwikiHandleiding-649efdc5ceb74516a2ffe068ddf692fa
+Functional Requirements
+- The knowledge base should divide FAQ’s over our products Hoy and Schoolwiki and questions should
+be marked with their target audience (parents, teachers, school admins, students)
+- The knowledge base should be able to to be used on both mobile, tablet and desktop devices.
+- You should be able to search through the knowledge base
+- You should be able to filter per product and target audience
+- Items should be visually appealing and recognisable
+Technical Requirements
+- There will be an API available later on, so the FAQ may be hardcoded for now
+
+FEAT-04
+Hide publicly visible password from the sign in screen
+Functional Requirements
+- The password field should be concealed so when our users fill in their password it can’t be seen by
+their physical neighbours when the look over their shoulder
+
+BUG-05
+When authentication failed on the sign in screen an error
+should be shown
+Functional Requirements
+- On the sign in screen when you fill in an incorrect password an error message should be shown. (This
+worked in the past but stopped working somewhere last month.)
+- The error message should be in a warning color and showing “The password you’ve filled in is
+incorrect”
+
+BUG-06
+On the first page of sessions, the pagination doesn’t
+show the active page number
+Functional Requirements
+- When you navigate to the sessions overview, without interfering with the pagination, page 1 should be
+marked as active.
+- When you use the pagination navigating to other pages, it should also be active on the correct page
+
+FEAT-07
+Search for sessions
+Functional Requirements
+- The sessions overview should be searchable. There is already a search bar in the UI, but that is not
+implemented yet.
+- I want to be able to search for customer name, user name or user id
+
+BUG-08
+Sign out is broken!
+Functional Requirements
+- When I press on the Log out button I’m expecting to sign out and be redirected to the sign in screen,
+however this is not working.
+- Some users have complained that they even couldn’t find the sign out button.
+
+FEAT-09
+Show the latest sign in on the dashboard
+Functional Requirements
+- On the Dashboard page in the admin panel we would like to see which user has been signed in last.
+- Show the user’s name and the school they’ve signed into including with how long ago it happened.
+
+FEAT-10
+Custom sorting sessions
+Functional Requirements
+- When I visit the sessions overview I want to be able to set the sorting on the created date
+- I want to be able to sort ascending or descending based on the created date
+Technical Requirements
+- Currently the sessions are sorted randomly based on how the API returns the data, this can’t be
+changed.
+
+BUG-11
+Show more sessions in the overview
+Functional Requirements
+- Currently we only show 5 items per page, please update this to 20 so we can show more data on a
+page and don’t need to browse as much.
