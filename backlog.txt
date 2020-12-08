@@ -5,6 +5,13 @@ Context
 - To avoid clashing with other local clients which already run on port 8181 we need the Frontend Client to
 run locally on 9331.
 
+BUG-08
+Sign out is broken!
+Functional Requirements
+- When I press on the Log out button I’m expecting to sign out and be redirected to the sign in screen,
+however this is not working.
+- Some users have complained that they even couldn’t find the sign out button.
+
 FEAT-04
 Hide publicly visible password from the sign in screen
 Functional Requirements
@@ -19,13 +26,6 @@ Functional Requirements
 worked in the past but stopped working somewhere last month.)
 - The error message should be in a warning color and showing “The password you’ve filled in is
 incorrect”
-
-BUG-08
-Sign out is broken!
-Functional Requirements
-- When I press on the Log out button I’m expecting to sign out and be redirected to the sign in screen,
-however this is not working.
-- Some users have complained that they even couldn’t find the sign out button.
 
 FEAT-01
 Make the sessions page private, so it's not accessible
