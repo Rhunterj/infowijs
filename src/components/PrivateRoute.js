@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 import {
   Redirect,
   Route,
-} from 'react-router-dom'
-import qs from 'qs'
-
+} from 'react-router-dom';
+import isAuthenticated from '../selectors/authentication/isAuthenticated';
+import { connect } from 'react-redux'
 const PrivateRoute = ({
   component: Component,
+  isAuthenticated,
   ...props
 }) => (
   <Route
     // eslint-disable-next-line react/jsx-props-no-spreading
     {...props}
     render={(p) => {
-      const queryString = qs.parse(props.location.search)
-      return (queryString.token && queryString.token === "private-key" ? (
+      return (isAuthenticated ? (
       // eslint-disable-next-line react/jsx-props-no-spreading
         <Component {...p} />
       ) : (
@@ -30,8 +30,8 @@ const PrivateRoute = ({
   />
 )
 
-PrivateRoute.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.node, PropTypes.object, PropTypes.func]).isRequired,
-}
+const stateToProps = (state) => ({
+  isAuthenticated: isAuthenticated(state),
+});
 
-export default PrivateRoute
+export default connect(stateToProps, null)(PrivateRoute);
