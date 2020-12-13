@@ -7,6 +7,7 @@ const initialState = {
     page: 1,
     limit: 50,
     pages: 1,
+    filter: false,
   },
   errors: null,
 }
@@ -26,7 +27,7 @@ export default (state = initialState, action) => {
         data: action.payload,
         meta: {
           ...action.meta,
-          pages: Math.ceil((action.meta.total || 0) / (action.meta.limit || 50)),
+          pages: Math.ceil((action?.meta?.total || 0) / (action?.meta?.limit || 50)),
         },
         errors: null,
       }
